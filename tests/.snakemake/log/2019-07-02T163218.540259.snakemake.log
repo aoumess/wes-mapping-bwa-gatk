@@ -1,0 +1,4 @@
+TypeError in line 265 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk:
+get_picard_dedup_stats() missing 1 required positional argument: 'wildcards'
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 11, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 265, in <module>

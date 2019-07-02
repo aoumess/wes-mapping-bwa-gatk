@@ -1,0 +1,4 @@
+AttributeError in line 63 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk:
+'builtin_function_or_method' object has no attribute 'index'
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 14, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk", line 63, in <module>

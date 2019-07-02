@@ -1,0 +1,4 @@
+WorkflowError in line 22 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk:
+Schema file /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/../schemas/config.schema.yaml not found.
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 11, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 22, in <module>

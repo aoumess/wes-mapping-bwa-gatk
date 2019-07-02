@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Unlimited resources: time_min, mem_mb
+Job counts:
+	count	jobs
+	1	all
+	1	bwa_index
+	2	bwa_mem
+	2	copy_extra
+	4	copy_fastq
+	4	fastqc
+	2	gatk_bqsr
+	1	multiqc
+	2	picard_add_or_replace_group
+	2	picard_alignment_summary
+	2	picard_insert_size
+	2	picard_mark_duplicates
+	25
+
+[Tue Jul  2 17:21:44 2019]
+Job 23: Copying dbsnp.vcf.gz as reference
+Reason: Missing output files: genome/dbsnp.vcf.gz
+
+/home/tdayris/Documents/Outils/anaconda3/envs/Python_3_7/bin/python3.7 /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/tests/.snakemake/scripts/tmp9_4fdbe5.wrapper.py
+[Tue Jul  2 17:21:46 2019]
+Error in rule copy_extra:
+    jobid: 23
+    output: genome/dbsnp.vcf.gz
+    log: logs/copy_dbsnp.vcf.gz.log (check log file(s) for error message)
+
+RuleException:
+CalledProcessError in line 64 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/copy.smk:
+Command 'set -euo pipefail;  /home/tdayris/Documents/Outils/anaconda3/envs/Python_3_7/bin/python3.7 /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/tests/.snakemake/scripts/tmp9_4fdbe5.wrapper.py' returned non-zero exit status 1.
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/copy.smk", line 64, in __rule_copy_extra
+  File "/home/tdayris/Documents/Outils/anaconda3/envs/Python_3_7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/tests/.snakemake/log/2019-07-02T172144.522211.snakemake.log

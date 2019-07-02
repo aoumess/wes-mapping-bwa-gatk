@@ -1,0 +1,4 @@
+KeyError in line 38 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk:
+'{sample}'
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 14, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk", line 38, in <module>

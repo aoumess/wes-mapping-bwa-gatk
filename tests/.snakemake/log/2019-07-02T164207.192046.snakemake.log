@@ -1,0 +1,4 @@
+KeyError in line 67 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk:
+'picard_sort_sam_extra'
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 14, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk", line 67, in <module>

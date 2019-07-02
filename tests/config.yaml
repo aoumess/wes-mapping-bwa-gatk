@@ -1,0 +1,26 @@
+cold_storage:
+  - /mnt
+design: design.tsv
+params:
+  bwa_index_extra: ''
+  bwa_indpicard_sort_sam_extraex_extra: ''
+  bwa_map_extra: -T 20 -M
+  copy_extra: --make-unique
+  gatk_bqsr_extra: ''
+  picard_dedup_extra: REMOVE_DUPLICATES=true
+  picard_group_extra: RGLB=standard RGPL=novaseq RGPU={sample} RGSM={sample}
+  picard_isize_extra: METRIC_ACCUMULATION_LEVEL=SAMPLE
+  picard_sort_sam_extra: ''
+  picard_summary_extra: ''
+ref:
+  fasta: genomes/transcriptome.fasta
+  known:
+  - ../../snakemake-wrappers/bio/gatk/baserecalibrator/test/dbsnp.vcf.gz
+singularity_docker_image: docker://continuumio/miniconda3:4.4.10
+threads: 1
+workdir: .
+workflow:
+  fastqc: true
+  gatk: true
+  multiqc: true
+  picard: true

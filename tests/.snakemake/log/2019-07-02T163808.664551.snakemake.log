@@ -1,0 +1,4 @@
+KeyError in line 64 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk:
+'bwa_map_extra'
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 14, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk", line 64, in <module>

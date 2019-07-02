@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 8 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/multiqc.smk:
+Missing input files for rule multiqc:
+picard/stats/dedup/A_R1.metrics.txt
+picard/stats/dedup/B_R1.metrics.txt

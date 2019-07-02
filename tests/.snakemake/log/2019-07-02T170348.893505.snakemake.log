@@ -1,0 +1,4 @@
+TypeError in line 32 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/gatk.smk:
+'builtin_function_or_method' object is not subscriptable
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 16, in <module>
+  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/gatk.smk", line 32, in <module>

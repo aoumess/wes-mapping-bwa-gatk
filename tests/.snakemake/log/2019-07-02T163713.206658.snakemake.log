@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 5 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/picard.smk:
+Missing input files for rule picard_add_or_replace_group:
+bwa/mapping/A_R1.bam

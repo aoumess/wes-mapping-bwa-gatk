@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	1	bwa_index
+	2	bwa_mem
+	1	copy_extra
+	4	copy_fastq
+	4	fastqc
+	2	picard_add_or_replace_group
+	2	picard_mark_duplicates
+	17
+
+[Tue Jul  2 16:47:00 2019]
+Job 10: Copying B_R2.fastq for further process
+Reason: Missing output files: raw_data/B_R2.fastq
+
+[Tue Jul  2 16:47:00 2019]
+Job 16: Copying transcriptome.fasta as reference
+Reason: Missing output files: genome/transcriptome.fasta
+
+[Tue Jul  2 16:47:00 2019]
+Job 8: Copying B_R1.fastq for further process
+Reason: Missing output files: raw_data/B_R1.fastq
+
+[Tue Jul  2 16:47:00 2019]
+Job 7: Copying A_R1.fastq for further process
+Reason: Missing output files: raw_data/A_R1.fastq
+
+[Tue Jul  2 16:47:00 2019]
+Job 9: Copying A_R2.fastq for further process
+Reason: Missing output files: raw_data/A_R2.fastq
+
+RuleException in line 4 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/bwa.smk:
+'InputFiles' object has no attribute 'fasta'

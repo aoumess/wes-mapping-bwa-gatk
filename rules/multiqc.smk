@@ -7,27 +7,7 @@ https://snakemake-wrappers.readthedocs.io/en/stable/wrappers/multiqc.html
 """
 rule multiqc:
     input:
-        # Include FastQC reports
-        html = expand(
-            "qc/fastqc/{sample}_fastqc.{ext}",
-            sample=fq_root_dict.keys(),
-            ext=["html", "zip"]
-        ),
-        # Include picard duplicates
-        # dedup = expand(
-        #     "picard/stats/dedup/{sample}.metrics.txt",
-        #     sample=sample_id_list
-        # ),
-        # Include picard insert size
-        isize = expand(
-            "picard/stats/size/{sample}.isize.txt",
-            sample=sample_id_list
-        ),
-        # Include picard alignment summary
-        summary = expand(
-            "picard/stats/summary/{sample}_summary.txt",
-            sample=sample_id_list
-        )
+        **get_targets(no_multiqc=True)
     output:
         report(
             "qc/multiqc_report.html",

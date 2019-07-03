@@ -214,7 +214,7 @@ def get_picard_dedup_stats(sample) -> str:
     return config["params"]["picard_dedup_extra"]
 
 
-def get_targets() -> Dict[str, Any]:
+def get_targets(no_multiqc = False) -> Dict[str, Any]:
     """
     This function returns the targets of Snakemake
     following the requests from the user.
@@ -231,22 +231,23 @@ def get_targets() -> Dict[str, Any]:
             "picard/deduplicated/{sample}.bam",
             sample=sample_id_list
         )
-        # targets["picard_dedup"] = expand(
-        #     "picard/stats/dedup/{sample}.metrics.txt",
-        #     sample=sample_id_list
-        # )
-        targets["picard_isize"] = expand(
-            "picard/stats/size/{sample}.isize.txt",
+        targets["picard_dedup"] = expand(
+            "picard/stats/duplicates/{sample}.metrics.txt",
             sample=sample_id_list
         )
-        targets["picard_isize"] = expand(
+        if "Downstream_file" in design.columns.tolist():
+            print(design.columns.tolist())
+            targets["picard_isize"] = expand(
+                "picard/stats/size/{sample}.isize.txt",
+                sample=sample_id_list
+            )
+        targets["picard_summary"] = expand(
             "picard/stats/summary/{sample}_summary.txt",
             sample=sample_id_list
         )
-    if config["workflow"]["multiqc"] is True:
+    if config["workflow"]["multiqc"] is True and no_multiqc is False:
         targets["multiqc"] = "qc/multiqc_report.html"
 
-    print(targets, file=sys.stderr)
     return targets
 
 

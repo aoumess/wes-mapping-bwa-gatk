@@ -6,3 +6,4 @@ tests/raw_data
 tests/qc
 tests/mapped
 tests/dbsnp*
+tests/gatk

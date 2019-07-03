@@ -1,5 +1,0 @@
-KeyError in line 102 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk:
-'gtf'
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 11, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 261, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 102, in ref_link

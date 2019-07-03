@@ -1,8 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 22 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile:
-Missing input files for rule all:
-picard/stats/B_R1.summay.txt
-picard/stats/dedup/A_R1.metrics.txt
-picard/stats/dedup/B_R1.metrics.txt
-picard/stats/A_R1.summay.txt
-qc/multiqc_report.html

@@ -1,5 +1,0 @@
-NameError in line 152 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk:
-name 'known_list' is not defined
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 11, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 253, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 152, in refs_pack

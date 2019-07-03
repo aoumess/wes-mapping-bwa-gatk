@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 5 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/gatk.smk:
-Missing input files for rule gatk_bqsr:
-dbsnp.vcf.gz

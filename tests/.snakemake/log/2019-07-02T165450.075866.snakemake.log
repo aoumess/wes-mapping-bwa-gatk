@@ -1,5 +1,0 @@
-AttributeError in line 192 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk:
-'str' object has no attribute 'sample'
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 16, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/gatk.smk", line 33, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk", line 192, in get_gatk_args

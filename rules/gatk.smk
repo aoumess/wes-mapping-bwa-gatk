@@ -21,7 +21,7 @@ rule gatk_bqsr:
         swv
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 2048 + 7168, 47104)
+            lambda wildcards, attempt: min(attempt * 2048, 7168, 16384)
         ),
         time_min = (
             lambda wildcards, attempt: min(attempt * 75, 240)
@@ -29,7 +29,11 @@ rule gatk_bqsr:
     log:
         "logs/gatk/bqsr/{sample}.log"
     params:
-        java_opts = get_java_args(),
-        extra = get_gatk_args()
+        java_opts = (
+            lambda wildcards, resources: "-Djava.io.tmpdir=tmp/JAVA_TMP_{wildcards['sample']} -Xmx{resources['mem_mb']}m"
+        ),
+        extra = (
+            lambda wildcards:            "{config['params']['gatk_bqsr_extra']} --tmp-dir TMP_BQSR_{wildcards.sample}"
+        )
     wrapper:
         f"{swv}/bio/gatk/baserecalibrator"

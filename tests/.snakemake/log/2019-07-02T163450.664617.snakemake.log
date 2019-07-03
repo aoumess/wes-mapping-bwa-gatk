@@ -1,4 +1,0 @@
-KeyError in line 89 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/picard.smk:
-'picard_summary_extra'
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 14, in <module>
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/picard.smk", line 89, in <module>

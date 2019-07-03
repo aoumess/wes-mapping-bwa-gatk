@@ -1,3 +1,0 @@
-SyntaxError in line 251 of /home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/rules/common.smk:
-invalid syntax
-  File "/home/tdayris/Documents/Developpement/wes-mapping-bwa-gatk/Snakefile", line 11, in <module>

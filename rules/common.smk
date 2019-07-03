@@ -136,7 +136,6 @@ def fq_pairs() -> Dict[str, str]:
             design["Sample_id"],
             design["Upstream_file"]
         )
-        raise
         return {
             name: [f"raw_data/{op.basename(fq1)}"]
             for name, fq1 in iterator
@@ -169,24 +168,24 @@ def sample_id() -> List[str]:
     return design["Sample_id"].tolist()
 
 
-def get_gatk_args() -> str:
+def get_gatk_args(wildcards) -> str:
     """
     Return enhanced GATK arguments
     """
     return (
         "{config['params']['gatk_bqsr_extra']} "
-        "--tmp-dir TMP_BQSR_{sample}"
+        "--tmp-dir TMP_BQSR_{wildcards.sample}"
     )
 
 
-def get_java_args() -> str:
+def get_java_args(memory_mb=9216) -> str:
     """
     Return java args for GATK
     """
     makedirs("tmp")
     return (
-        "-Djava.io.tmpdir=tmp/JAVA_TMP_{sample} "
-        "-Xmx{resources.mem_mb}m"
+        "-Djava.io.tmpdir=tmp/JAVA_TMP_{wildcards.sample} "
+        "-Xmx{memory_mb}m"
     )
 
 

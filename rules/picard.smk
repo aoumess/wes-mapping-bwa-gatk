@@ -35,7 +35,8 @@ rule picard_mark_duplicates:
     input:
         "picard/groups/{sample}.bam"
     output:
-        temp("picard/deduplicated/{sample}.bam")
+        bam = temp("picard/deduplicated/{sample}.bam"),
+        metrics = "picard/stats/duplicates/{sample}.metrics.txt"
     message:
         "Dealing with duplicates in {wildcards.sample} with Picard"
     threads:

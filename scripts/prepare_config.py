@@ -82,7 +82,7 @@ if __name__ == '__main__':
         "--copy_extra",
         help="Extra parameters for bash copy (default: %(default)s)",
         type=str,
-        default="--make-unique"
+        default="--verbose"
     )
 
     main_parser.add_argument(

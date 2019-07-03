@@ -3,15 +3,15 @@ This rule uses BWA to index a fasta formatted genome sequence
 """
 rule bwa_index:
     input:
-        **refs_pack_dict
+        refs_pack_dict['fasta']
     output:
         expand(
             "bwa/index/{genome}.{ext}",
-            genome=refs_pack_dict["fasta"],
+            genome=os.path.basename(refs_pack_dict["fasta"]),
             ext=["amb", "ann", "bwt", "pac", "sa"]
         )
     message:
-        "Indexing {input.fasta} with BWA"
+        "Indexing {input} with BWA"
     threads:
         1
     resources:
@@ -25,7 +25,7 @@ rule bwa_index:
     log:
         "logs/bwa/index.log"
     params:
-        prefix = f"bwa/index/{refs_pack_dict['fasta']}"
+        prefix = f"bwa/index/{os.path.basename(refs_pack_dict['fasta'])}"
     wrapper:
         f"{swv}/bio/bwa/index"
 
@@ -38,7 +38,7 @@ rule bwa_mem:
         unpack(fq_pairs_w),
         index = expand(
             "bwa/index/{genome}.{ext}",
-            genome=refs_pack_dict["fasta"],
+            genome=os.path.basename(refs_pack_dict["fasta"]),
             ext=["amb", "ann", "bwt", "pac", "sa"]
         )
     output:
@@ -60,7 +60,7 @@ rule bwa_mem:
         )
     version: swv
     params:
-        index = "{input.index}",
+        index = f"bwa/index/{os.path.basename(refs_pack_dict['fasta'])}",
         extra = config['params']['bwa_map_extra'],
         sort = "picard",
         sort_order = "coordinate",

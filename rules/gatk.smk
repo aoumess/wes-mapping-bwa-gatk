@@ -6,7 +6,10 @@ rule gatk_bqsr:
     input:
         bam = "picard/deduplicated/{sample}.bam",
         ref = refs_pack_dict["fasta"],
-        known = refs_pack_dict["known_vcf"]
+        ref_index = refs_pack_dict["faidx"],
+        ref_dict = refs_pack_dict["fadict"],
+        known = refs_pack_dict["known_vcf"],
+        known_index = refs_pack_dict["known_index"]
     output:
         bam = report(
             "gatk/recal/{sample}.bam",
@@ -21,7 +24,7 @@ rule gatk_bqsr:
         swv
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 2048, 7168, 16384)
+            lambda wildcards, attempt: min(attempt * 2048 + 7168, 16384)
         ),
         time_min = (
             lambda wildcards, attempt: min(attempt * 75, 240)
@@ -30,10 +33,10 @@ rule gatk_bqsr:
         "logs/gatk/bqsr/{sample}.log"
     params:
         java_opts = (
-            lambda wildcards, resources: "-Djava.io.tmpdir=tmp/JAVA_TMP_{wildcards['sample']} -Xmx{resources['mem_mb']}m"
+            lambda wildcards, resources: get_java_args(wildcards, resources)
         ),
         extra = (
-            lambda wildcards:            "{config['params']['gatk_bqsr_extra']} --tmp-dir TMP_BQSR_{wildcards.sample}"
+            lambda wildcards: get_gatk_args(wildcards)
         )
     wrapper:
         f"{swv}/bio/gatk/baserecalibrator"

@@ -99,12 +99,17 @@ def ref_link() -> Dict[str, str]:
     # If not GTF is provided, error will be raised.
 
     fasta = config["ref"]["fasta"]
+    fasta_name = op.basename(fasta)
+    fasta_stem = op.splitext(fasta)[0]
     references = {
-        op.basename(fasta): op.realpath(fasta)
+        fasta_name: op.realpath(fasta),
+        f"{op.basename(fasta_stem)}.dict": f"{op.realpath(fasta_stem)}.dict",
+        f"{fasta_name}.fai": f"{op.realpath(fasta)}.fai"
     }
 
     for f in config["ref"]["known"]:
         references[op.basename(f)] = op.realpath(f)
+        references[f"{op.basename(f)}.tbi"] = f"{op.realpath(f)}.tbi"
 
     return references
 
@@ -148,8 +153,13 @@ def refs_pack() -> Dict[str, str]:
     """
     return {
         "fasta": f"genome/{op.basename(config['ref']['fasta'])}",
+        "faidx": f"genome/{op.basename(config['ref']['fasta'])}.fai",
+        "fadict": f"genome/{op.splitext(op.basename(config['ref']['fasta']))[0]}.dict",
         "known_vcf": [
             f"genome/{op.basename(f)}" for f in config["ref"]["known"]
+        ],
+        "known_index": [
+            f"genome/{op.basename(f)}.tbi" for f in config["ref"]["known"]
         ]
     }
 
@@ -172,20 +182,22 @@ def get_gatk_args(wildcards) -> str:
     """
     Return enhanced GATK arguments
     """
-    return (
-        "{config['params']['gatk_bqsr_extra']} "
-        "--tmp-dir TMP_BQSR_{wildcards.sample}"
-    )
+    if "--TMP_DIR" not in config['params']['gatk_bqsr_extra']:
+        return (
+            f"{config['params']['gatk_bqsr_extra']} "
+            f"--TMP_DIR TMP_BQSR_{wildcards.sample}"
+        )
+    return config['params']['gatk_bqsr_extra']
 
 
-def get_java_args(memory_mb=9216) -> str:
+def get_java_args(wildcards, resources) -> str:
     """
     Return java args for GATK
     """
     makedirs("tmp")
     return (
-        "-Djava.io.tmpdir=tmp/JAVA_TMP_{wildcards.sample} "
-        "-Xmx{memory_mb}m"
+        f"-Djava.io.tmpdir=tmp/JAVA_TMP_{wildcards.sample} "
+        f"-Xmx{resources.mem_mb}m"
     )
 
 

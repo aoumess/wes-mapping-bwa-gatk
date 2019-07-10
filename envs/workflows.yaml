@@ -1,4 +1,4 @@
-name: rna-count-kallisto
+name: wes-mapping-bwa-gatk
 channels:
   - bioconda
   - conda-forge

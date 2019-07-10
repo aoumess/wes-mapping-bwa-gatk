@@ -236,7 +236,6 @@ def get_targets(no_multiqc = False) -> Dict[str, Any]:
             sample=sample_id_list
         )
         if "Downstream_file" in design.columns.tolist():
-            print(design.columns.tolist())
             targets["picard_isize"] = expand(
                 "picard/stats/size/{sample}.isize.txt",
                 sample=sample_id_list

@@ -93,6 +93,13 @@ if __name__ == '__main__':
     )
 
     main_parser.add_argument(
+        "--samtools_fixmate_extra",
+        help="Extra parameters for samtools fixmate (default: %(default)s)",
+        type=str,
+        default="-c -m"
+    )
+
+    main_parser.add_argument(
         "--bwa_map_extra",
         help="Extra parameters for bwa mem (default: %(default)s)",
         type=str,
@@ -171,7 +178,8 @@ if __name__ == '__main__':
             "picard_isize_extra": args.picard_isize_extra,
             "gatk_bqsr_extra": args.gatk_bqsr_extra,
             "picard_summary_extra": args.picard_summary_extra,
-            "picard_sort_sam_extra": args.picard_sort_sam_extra
+            "picard_sort_sam_extra": args.picard_sort_sam_extra,
+            "samtools_fixmate_extra": args.samtools_fixmate_extra
         }
     }
 

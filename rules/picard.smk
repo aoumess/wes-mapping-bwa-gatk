@@ -4,7 +4,7 @@ the @RG, @SM, ... tags within bam file.
 """
 rule picard_add_or_replace_group:
     input:
-        "samtools/fixmate/{sample}.bam"
+        "samtools/position_sort/{sample}.bam"
     output:
         temp("picard/groups/{sample}.bam")
     message:

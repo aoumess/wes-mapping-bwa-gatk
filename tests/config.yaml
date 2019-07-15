@@ -12,12 +12,13 @@ params:
   picard_isize_extra: METRIC_ACCUMULATION_LEVEL=SAMPLE
   picard_sort_sam_extra: ''
   picard_summary_extra: ''
+  samtools_fixmate_extra: -c -m
 ref:
   fasta: genomes/genome.fasta
   known:
   - genomes/dbsnp.vcf.gz
 singularity_docker_image: docker://continuumio/miniconda3:4.4.10
-threads: 1
+threads: 4
 workdir: .
 workflow:
   fastqc: true

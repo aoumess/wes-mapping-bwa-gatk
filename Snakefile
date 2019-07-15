@@ -13,6 +13,7 @@ include: "rules/copy.smk"
 include: "rules/fastqc.smk"
 include: "rules/multiqc.smk"
 include: "rules/bwa.smk"
+include: "rules/samtools.smk"
 include: "rules/picard.smk"
 include: "rules/gatk.smk"
 

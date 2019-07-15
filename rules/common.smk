@@ -214,7 +214,7 @@ def get_picard_dedup_stats(sample) -> str:
     return config["params"]["picard_dedup_extra"]
 
 
-def get_targets(no_multiqc = False) -> Dict[str, Any]:
+def get_targets(no_multiqc=False) -> Dict[str, Any]:
     """
     This function returns the targets of Snakemake
     following the requests from the user.

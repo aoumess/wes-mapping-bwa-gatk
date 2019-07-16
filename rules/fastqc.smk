@@ -19,7 +19,7 @@ rule fastqc:
         1
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 256, 768)
+            lambda wildcards, attempt: min(attempt * 512 + 512, 2048)
         ),
         time_min = (
             lambda wildcards, attempt: min(attempt * 20, 120)

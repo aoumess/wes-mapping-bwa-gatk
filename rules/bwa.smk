@@ -53,10 +53,10 @@ rule bwa_mem:
         min(config["threads"], 12)
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 8192, 16384)
+            lambda wildcards, attempt: min(attempt * 8192 + 2048, 20480)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 45, 240)
+            lambda wildcards, attempt: min(attempt * 120, 480)
         )
     version: swv
     params:

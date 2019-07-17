@@ -39,7 +39,7 @@ rule bwa_mem:
         index = expand(
             "bwa/index/{genome}.{ext}",
             genome=os.path.basename(refs_pack_dict["fasta"]),
-            ext=["amb", "ann", "bwt", "pac", "sa"]
+            ext=["amb", "ann", "bwt", "pac"]
         )
     output:
         report(

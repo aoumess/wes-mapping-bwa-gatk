@@ -8,7 +8,7 @@ rule bwa_index:
         expand(
             "bwa/index/{genome}.{ext}",
             genome=os.path.basename(refs_pack_dict["fasta"]),
-            ext=["amb", "ann", "bwt", "pac", "sa"]
+            ext=["amb", "ann", "bwt", "pac"]
         )
     message:
         "Indexing {input} with BWA"
@@ -16,7 +16,7 @@ rule bwa_index:
         1
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 8192, 16384)
+            lambda wildcards, attempt: min(attempt * 8192 + 2048, 20480)
         ),
         time_min = (
             lambda wildcards, attempt: min(attempt * 120, 480)

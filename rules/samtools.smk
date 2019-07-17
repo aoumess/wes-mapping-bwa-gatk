@@ -12,7 +12,7 @@ rule samtools_sort_query:
         1
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 8192, 24576)
+            lambda wildcards, attempt: min(attempt * 8192 + 2048, 24576)
         ),
         time_min = (
             lambda wildcards, attempt: min(attempt * 75, 225)
@@ -75,7 +75,7 @@ rule samtools_sort_coordinate:
         1
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 8192, 24576)
+            lambda wildcards, attempt: min(attempt * 8192 + 2048, 24576)
         ),
         time_min = (
             lambda wildcards, attempt: min(attempt * 75, 225)

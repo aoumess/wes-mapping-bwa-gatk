@@ -19,7 +19,7 @@ rule bwa_index:
             lambda wildcards, attempt: min(attempt * 8192, 16384)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 45, 240)
+            lambda wildcards, attempt: min(attempt * 120, 480)
         )
     version: swv
     log:

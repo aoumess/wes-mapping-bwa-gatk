@@ -15,10 +15,10 @@ rule picard_add_or_replace_group:
         swv
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 2048, 8192)
+            lambda wildcards, attempt: min(attempt * 2048 + 2048, 8192)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 20, 120)
+            lambda wildcards, attempt: min(attempt * 60, 120)
         )
     log:
         "logs/picard/groups/{sample}.log"
@@ -45,10 +45,10 @@ rule picard_mark_duplicates:
         swv
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 2048, 8192)
+            lambda wildcards, attempt: min(attempt * 2048 + 2048, 8192)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 20, 120)
+            lambda wildcards, attempt: min(attempt * 45 + 60, 240)
         )
     log:
         "logs/picard/duplicates/{sample}.log"
@@ -79,10 +79,10 @@ rule picard_alignment_summary:
         swv
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 2048, 8192)
+            lambda wildcards, attempt: min(attempt * 2048 + 1024, 8192)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 45, 180)
+            lambda wildcards, attempt: min(attempt * 60, 180)
         )
     log:
         "logs/picard/stats/{sample}.summary.log"
@@ -113,10 +113,10 @@ rule picard_insert_size:
         swv
     resources:
         mem_mb = (
-            lambda wildcards, attempt: min(attempt * 2048, 8192)
+            lambda wildcards, attempt: min(attempt * 2048 + 1024, 8192)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 45, 180)
+            lambda wildcards, attempt: min(attempt * 45 + 60, 180)
         )
     log:
         "logs/picard/stats/{sample}.isize.log"

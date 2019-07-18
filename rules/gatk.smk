@@ -27,7 +27,7 @@ rule gatk_bqsr:
             lambda wildcards, attempt: min(attempt * 2048 + 7168, 16384)
         ),
         time_min = (
-            lambda wildcards, attempt: min(attempt * 75, 240)
+            lambda wildcards, attempt: min(attempt * 180, 480)
         )
     log:
         "logs/gatk/bqsr/{sample}.log"
